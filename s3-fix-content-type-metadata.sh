@@ -3,7 +3,7 @@
 # Safely fix invalid content-type metadata on AWS S3 bucket website assets for some common filetypes
 # Inclues CSS, JS, JPG, JPEG, GIF, PNG, SVG, PDF
 
-BUCKET="YOUR-S3-BUCKET-NAME"
+BUCKET=${BUCKET:="YOUR-S3-BUCKET-NAME"} 
 
 
 # Functions
@@ -66,7 +66,10 @@ else
 fi
 
 message "This script will safely fix invalid content-type metadata on AWS S3 bucket website assets."
+
+if [ "$BUCKET" = "YOUR-S3-BUCKET-NAME" ]; then
 pause
+fi
 
 # Ensure Variables are set
 if [ "$BUCKET" = "YOUR-S3-BUCKET-NAME" ]; then
